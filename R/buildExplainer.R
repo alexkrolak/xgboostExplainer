@@ -56,7 +56,7 @@
 
 buildExplainer = function(xgb.model, trainingData, type = "binary", base_score = 0.5, trees_idx = NULL){
 
-  col_names = attr(trainingData, ".Dimnames")[[2]]
+  col_names <- colnames(trainingData)
   cat('\nCreating the trees of the xgboost model...')
   trees = xgb.model.dt.tree(col_names, model = xgb.model, trees = trees_idx)
   cat('\nGetting the leaf nodes for the training set observations...')
